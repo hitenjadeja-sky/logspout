@@ -17,7 +17,7 @@ type httpService struct {
 
 func (s *httpService) Name() string {
 	return fmt.Sprintf("http[%s]:%s",
-		strings.Join(HttpHandlers.Names(), ","), s.port)
+		strings.Join(HttpHandlers.Names(), ","), "80")
 }
 
 func (s *httpService) Setup() error {
@@ -30,5 +30,5 @@ func (s *httpService) Setup() error {
 }
 
 func (s *httpService) Run() error {
-	return http.ListenAndServe(":"+s.port, nil)
+	return http.ListenAndServe(":80", nil)
 }
